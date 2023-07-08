@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock title %}
+
+{% block styles %}
+<style>
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .content-image {
+        flex: 0 0 40%;
+        max-width: 40%;
+        margin-right: 40px;
+    }
+
+    .content-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .content-text {
+        flex: 1 1 60%;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 32px;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #555555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .values-section {
+        margin-top: 40px;
+        padding: 40px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .values-section h3 {
+        font-size: 24px;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    .value-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .value-icon {
+        font-size: 48px;
+        color: #ff5f6d;
+        margin-bottom: 10px;
+    }
+
+    .value-title {
+        font-size: 20px;
+        color: #333333;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .value-description {
+        font-size: 16px;
+        color: #555555;
+        line-height: 1.6;
+    }
+</style>
+{% endblock styles %}
+
+{% block body %}
+<div class="content">
+    <div class="content-image">
+        {% comment %} <img src="/static/images/.jpeg" alt="About Image"> {% endcomment %}
+    </div>
+    <div class="content-text">
+        <h2>About Us</h2>
+        <p>We are a team of dedicated healthcare professionals committed to providing reliable and accurate medical information to empower individuals in making informed decisions about their health and well-being.</p>
+        <p>Our mission is to make healthcare accessible and understandable to everyone by delivering comprehensive and trustworthy content.</p>
+    </div>
+</div>
+
+<div class="values-section">
+    <h3>Our Core Values</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="value-card">
+                <i class="fas fa-heartbeat value-icon"></i>
+                <div class="value-title">Reliability</div>
+                <p class="value-description">We ensure that our content is backed by reliable sources and reviewed by medical professionals.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="value-card">
+                <i class="fas fa-users value-icon"></i>
+                <div class="value-title">Collaboration</div>
+                <p class="value-description">We collaborate with experts and organizations to bring you the most up-to-date and accurate information.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="value-card">
+                <i class="fas fa-globe value-icon"></i>
+                <div class="value-title">Global Reach</div>
+                <p class="value-description">We strive to reach a global audience, making our content accessible to people from all walks of life.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="value-card">
+                <i class="fas fa-clipboard-check value-icon"></i>
+                <div class="value-title">Trustworthiness</div>
+                <p class="value-description">We prioritize the trust of our users and maintain the highest standards of integrity and ethical conduct.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% comment %} {% extends 'base.html' %}
+
+{% block title %}About{% endblock title %}
+
+{% block styles %}
+<style>
+    .content {
+        margin: 50px;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    h2 {
+        font-size: 32px;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #555555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .highlight {
+        font-weight: bold;
+        color: #ff5f6d;
+    }
+
+    .feature-list {
+        margin-top: 20px;
+        list-style: disc;
+        padding-left: 20px;
+    }
+
+    .feature-list li {
+        font-size: 18px;
+        color: #555555;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+
+    .feature-list li:before {
+        content: '\2022';
+        color: #ff5f6d;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+        .content {
+            margin: 20px;
+            padding: 10px;
+        }
+
+        h2 {
+            font-size: 26px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+</style>
+{% endblock styles %}
+
+{% block body %}
+<div class="content">
+    <h2>About Us</h2>
+    <p>We are dedicated to providing reliable and up-to-date information about medicines and healthcare. Our goal is to empower individuals to make informed decisions regarding their health and well-being.</p>
+    <p>At our website, you can find comprehensive information about various medicines, their uses, potential side effects, and precautions. Our team of medical professionals works diligently to ensure the accuracy and relevance of the content we provide.</p>
+    <h2>Our Mission</h2>
+    <p>Our mission is to improve access to trustworthy and reliable healthcare information. We strive to simplify the process of finding information about medicines, making it easier for individuals to understand their medications and make informed choices.</p>
+    <h2>Our Values</h2>
+    <p>We are guided by the following values:</p>
+    <ul class="feature-list">
+        <li>Accuracy: We prioritize accuracy and ensure that the information we provide is based on reputable sources and reviewed by medical professionals.</li>
+        <li>Transparency: We believe in transparency and strive to clearly communicate the sources of information and any potential biases.</li>
+        <li>User-Centric: We are committed to meeting the needs of our users by continuously improving the usability and accessibility of our platform.</li>
+        <li>Privacy: We respect the privacy of our users and follow strict security measures to protect their personal information.</li>
+    </ul>
+</div>
+{% endblock body %} {% endcomment %}

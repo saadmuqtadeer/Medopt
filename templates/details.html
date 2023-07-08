@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Item Details : {{name}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+            }
+
+            h2 {
+                color: #333333;
+                margin-top: 0;
+            }
+
+            p {
+                color: #666666;
+                margin-bottom: 10px;
+            }
+
+            .warning {
+                color: #ff0000;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Item Details</h2>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Description:</strong> {{ desc }}</p>
+            <p><strong>Manufacturer:</strong> {{ manufacturer }}</p>
+            <p><strong>Active Ingredient:</strong> {{ active_ingredient }}</p>
+            <p><strong>Alcohol Warning:</strong> {{ alcoholWarning }}</p>
+            <p><strong>Breastfeeding Warning:</strong> {{ breastfeedingWarning }}</p>
+            <p><strong>Pregnancy Warning:</strong> {{ pregnancyWarning }}</p>
+
+            <!-- Other item details as needed -->
+        </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>

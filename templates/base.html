@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %}{% endblock title %}| Medopt-MedicineRecommendationSystem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home"><strong>Medopt</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Services
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">View Cart</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Consult a Doctor</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+             
+            </ul>
+            <form method="GET" action="{% url 'search' %}" class="d-flex" role="search">
+              <input type="text" name="search_input" placeholder="Enter your search term" class="form-control me-2" aria-label="Search">
+              <button id = "search-bar" class="btn btn-outline-success by-2" type="submit">Search</button>
+            </form>
+            
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            {% comment %} <script>
+                $(document).ready(function() {
+                    $('#search-bar').autocomplete({
+                        source: '/home/',
+                    });
+                });
+            </script> {% endcomment %}
+            {% comment %} <button onclick="window.location.href='{% url 'signup' %}'" class="btn btn-outline-success me-2" >SignUp</button> {% endcomment %}
+            {% if user.is_authenticated %}
+              <a href = "{% url 'profile' %}" class = "btn btn-outline-success">profile</a>
+            {% else %}
+            <a href = "{% url 'signup' %}" class = "btn btn-outline-success">SignUp</a>
+            {% endif %}
+            {% comment %} <li class="login"><a href="/signup">Signup/Login</a></li> {% endcomment %}
+          </div>
+        </div>
+    </nav>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" >&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    
+    {% block body %}{% endblock body %}
+    <script src="https://code.jquery.com/jquery-1.1.11.min.js Integrity-sha384-36qa44bIEZ+pTinySVZFSSP01JvUGFyYfatsoen crossoriginanonymous"></script>
+    <script src="https://cdn.Isdelive.net/ens/popper. 15@1.16.0/dist/und/copper.minda Integrity-sha354 0619mblyZ-Joft 2itatiidiv1915922Tteoksdowatfcolo" cressorigin-"anonymous"></script>
+    <script src="https://stackrath bootstrapcdn.com/bootstrap/4.4.1/15/bootstrap.min.Is Integrity- -OFESJUM JAIN7Ywave1lqfkt jouedoctx130gaifue crossorigins anys/sortsody"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+  </body>
+
+</html>

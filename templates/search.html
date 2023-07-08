@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results : {{ search_query }}</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        #grid {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <div id="wrapper">
+        
+        <div class="cart-icon-top"></div>
+        <div class="cart-icon-bottom"></div>
+
+        <div id="checkout">
+            Favourites
+        </div>
+
+        <div id="sidebar">
+            <h3>LIKED</h3>
+            <div id="cart">
+                <span class="empty">No items LIKED.</span>
+            </div>
+
+            <h3>TYPES</h3>
+            <div class="checklist categories">
+                <ul>
+                    <li><a href=""><span></span>Liquid</a></li>
+                    <li><a href=""><span></span>Tablet</a></li>
+                    <li><a href=""><span></span>Capsules</a></li>
+                    <li><a href=""><span></span>Suppositories</a></li>
+                    <li><a href=""><span></span>Drops</a></li>
+                    <li><a href=""><span></span>Inhalers</a></li>
+                    <li><a href=""><span></span>Injections</a></li>
+                    <li><a href=""><span></span>patches</a></li>
+                    <li><a href=""><span></span>Suppositories</a></li>
+                    <li><a href=""><span></span>Topical medicines</a></li>
+                </ul>
+            </div>
+
+            {% comment %} <h3>COLORS</h3>
+            <div class="checklist colors">
+                <ul>
+                    <li><a href=""><span></span>Beige</a></li>
+                    <li><a href=""><span style="background:#222"></span>Black</a></li>
+                    <li><a href=""><span style="background:#6e8cd5"></span>Blue</a></li>
+                    <li><a href=""><span style="background:#f56060"></span>Brown</a></li>
+                    <li><a href=""><span style="background:#44c28d"></span>Green</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href=""><span style="background:#999"></span>Grey</a></li>
+                    <li><a href=""><span style="background:#f79858"></span>Orange</a></li>
+                    <li><a href=""><span style="background:#b27ef8"></span>Purple</a></li>
+                    <li><a href=""><span style="background:#f56060"></span>Red</a></li>
+                    <li><a href=""><span
+                                style="background:#fff;border: 1px solid #e8e9eb;width:13px;height:13px;"></span>White</a>
+                    </li>
+                </ul>
+            </div> {% endcomment %}
+
+            <h3>MilliGrams:</h3>
+            <div class="checklist sizes">
+                <ul>
+                    <li><a href=""><span></span>100mg</a></li>
+                    <li><a href=""><span></span>250mg</a></li>
+                    <li><a href=""><span></span>600mg</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href=""><span></span>150mg</a></li>
+                    <li><a href=""><span></span>300mg</a></li>
+                    <li><a href=""><span></span>650mg</a></li>
+                </ul>
+            </div>
+
+            <h3>PRICE RANGE</h3>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/price-range.png" alt="" />
+        </div>
+
+        <div id="grid-selector">
+            <div id="grid-menu">
+                View:
+                <ul>
+                    <li class="largeGrid"><a href=""></a></li>
+                    <li class="smallGrid"><a class="active" href=""></a></li>
+                </ul>
+            </div>
+
+            Showing 1-13 of 48 results
+            <p><strong>Subtitutions for "{{ search_query }}" </strong></p>
+        </div>
+        <div id="grid">
+            <div class = "container">
+                <div class="row">
+                {% if search_results %}
+                    {% for item in search_results %}
+
+                        <div class="product" style="z-index: 1;">
+
+                                <div class="info-large">
+                                    <h4> {{ item.name }}</h4>
+                                    <button class="add-cart-large">Like</button>                                
+                                </div>
+
+                                <div class="make3D">
+                                    <div class="product-front">
+                                        <div class="shadow"></div>
+                                        <img src="static/images/img{{ forloop.counter }}.jpg" alt="">
+                                        {% comment %} <img src="https://source.unsplash.com/900x900/?{{ item.name }}" alt=""> {% endcomment %}
+                                        <div class="image_overlay"></div>
+                                        <div class="add_to_cart">Like </div>
+                                        <div class="view_gallery">View Warning</div>
+                                        <div class="more_details"><a style="text-decoration: none;" href="{% url 'details' %}?item_id={{ item.id }}&name={{ item.name }}&desc={{ item.desc }}&manufacturer={{ item.manufacturer }}&activeIngredient={{ item.activeIngredient }}&alcoholWarning={{item.alcoholWarning}}&breastfeedingWarning={{item.breastfeedingWarning}}&pregnancyWarning={{item.pregnancyWarning}}&">More Details</a></div>
+                                        <div class="stats">
+                                            <div class="stats-container">
+                                                {% comment %} <span class="product_price">Like</span>  {% endcomment %}
+                                                <span class="product_name">{{ item.name }} </span> 
+                                                <strong>Manufacturer:</strong>   
+                                                <p>{{ item.manufacturer }}</p>
+                                                <strong>Ingredient:</strong>
+                                                <p>{{ item.activeIngredient }}</p>                                            
+                                                <div class="product-options">
+                                                    <strong>Description</strong>
+                                                    <p>{{ item.desc }}</p>
+                                                </div>                          
+                                            </div>                    
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-back">
+                                        <div class="shadow"></div>
+                                        <div class="carousel">
+                                            <ul class="carousel-container" rel="0" style="width: 945px;">
+                                                <li><img src="static/images/alcohol.jpg" alt="">
+                                                    <strong>Alcohol Warning:</strong>
+                                                    <p>{{ item.alcoholWarning }}</p>
+                                                </li>
+                                                <li><img src="static/images/breastfeeding1.jpg" alt="">
+                                                    <strong>BreastFeeding Warning:</strong>
+                                                    <p>{{ item.breastfeedingWarning }}</p>
+                                                </li>
+                                                <li><img src="static/images/pregnency3.jpg" alt="">
+                                                    <strong>Pregnancy Warning:</strong>
+                                                    <p>{{ item.pregnancyWarning }}</p>
+                                                </li>
+                                            </ul>
+                                            <div class="arrows-perspective">
+                                                <div class="carouselPrev">
+                                                    <div class="y"></div>
+                                                    <div class="x"></div>
+                                                </div>
+                                                <div class="carouselNext">
+                                                    <div class="y"></div>
+                                                    <div class="x"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flip-back">
+                                            <div class="cy"></div>
+                                            <div class="cx"></div>
+                                        </div>
+                                    </div>	  
+                                </div>	
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No results found for "{{ search_query }}".</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script  src="static/js/script.js"></script>
+</body>
+</html>

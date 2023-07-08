@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Profile</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="path/to/styles.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #333333;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #cccccc;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div class="container">
+            <h2>Welcome!</h2>
+            <h3>Profile Details:</h3>
+            <p>Name: {{ user.username }} {{ user.last_name }}</p>
+            <p>Email: {{ user.email }}</p>
+            <a href="{% url 'logout' %}" class="btn btn-outline-success">Sign Out</a>
+        </div>
+        <!-- Uncomment the following line if you have a user photo -->
+        <!-- <img src="{{ user.photo.url }}" alt="User Photo"> -->
+    {% else %}
+        <div class="container">
+            <a href="{% url 'signup' %}" class="btn btn-outline-success">Sign Up</a>
+        </div>
+    {% endif %}
+    <script src="" async defer></script>
+</body>
+</html>
