@@ -1,0 +1,2 @@
+# Medicine_Recommendation_System_Django
+Medicine Recommendation System(Django framework)
