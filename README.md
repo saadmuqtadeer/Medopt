@@ -1,5 +1,5 @@
 # Medicine_Recommendation_System_Django
-Medicine Recommendation System(Django framework)
+Medicine Recommendation System(Django framework) and Cosine Similarty, 
 Follow the below steps to execute the project
 1) install python
 2) install Django
