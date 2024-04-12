@@ -3,7 +3,7 @@ Medicine Recommendation System(Django framework) and Cosine Similarty,
 Follow the below steps to execute the project
 1) install python
 2) install Django
-3) python manage.py
+3) python manage.py makemigrations
 4) python manage.py migrate
 5) python manage.py runserver
 6) ctrl + click on the provided link
